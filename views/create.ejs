@@ -1,0 +1,69 @@
+<%- include('partials/header')%>
+<body>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand mx-auto">Interview Creation Portal</a>
+            <button type="button" onclick="location.href='/'" class="btn btn-outline-dark mx-auto">Interviews</button>
+        </div>
+    </nav>
+
+    <div class="py-3 text-center">
+        <div class="container">
+            <h2 class="display-4 my-4">Create Interview</h2>
+        </div>
+    </div>
+    <div class="py-4 mx-auto">
+        <div class="container">
+            <form action="/create" method = "POST" class="mx-auto">
+                <div class="participants">
+                    <div class="input-group row mx-auto mb-3">
+                        <div class="form-floating mx-auto col-11 mb-3">
+                            <select class="form-select participant mb-3" name="1" id="1">
+                                <option selected>Select Candidate</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                            <label for="1">Select Candidates</label>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" onclick="addparticipant()" class="btn btn-outline-dark">Add Participant</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-group mb-3 row mx-auto">
+                    <div class="col">
+                        <label for="startdate">Start Date</label>
+                        <input type="date" name="sdate" id="startdate" class="form-control">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="starttime">Start Time</label>
+                        <input type="time" name="stime" id="starttime" class="form-control">
+                    </div>
+
+                </div>
+                <div class="input-group row mx-auto">
+                    <div class="mb-3 col">
+                        <label for="enddate">End Date</label>
+                        <input type="date" name="edate" id="enddate" class="form-control">
+                    </div>
+                    <div class="mb-3 col">
+                        <label for="endtime">End Time</label>
+                        <input type="time" name="etime" id="endtime" class="form-control">
+                    </div>
+                </div>
+                <div class="mt-4 text-center mx-auto">
+                    <button type="submit" class=" text-center btn btn-outline-dark col-4 mx-auto">Schedule Interview</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="./scripts/user.js"></script>
+    
+    <script>
+        if("<%= errorMessage %>" == "error"){
+            alert("Some Error");
+        }
+    </script>
+</body>
